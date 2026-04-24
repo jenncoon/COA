@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{var A=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var L=30000;var u=3000;document.addEventListener("DOMContentLoaded",()=>{const V=window.Babel;const $="om-src-id";if(V&&V.registerPlugin&&!(V.availablePlugins&&V.availablePlugins[$])){V.registerPlugin($,({types:Q})=>({visitor:{JSXOpeningElement(W,X){const K=W.node;if(K.name&&K.name.type==="JSXMemberExpression")return;for(let J=0;J<K.attributes.length;J++){const w=K.attributes[J];if(w.type==="JSXAttribute"&&w.name&&w.name.name==="data-om-id")return}const z=X.file&&X.file.opts&&X.file.opts.filename||"?";const k=K.loc&&K.loc.start;const C=`jsx:${z}:${K.start??0}:${k?k.line:0}:${k?k.column+1:0}`;K.attributes.push(Q.jsxAttribute(Q.jsxIdentifier("data-om-id"),Q.stringLiteral(C)))}}}))}const Z=["transform-react-jsx-source",$];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((Q,W)=>{const X=Q.getAttribute("data-plugins")||"";const K=Z.filter((z)=>X.indexOf(z)<0);if(K.length){Q.setAttribute("data-plugins",X?`${X},${K.join(",")}`:K.join(","))}if(!Q.hasAttribute("data-filename")){Q.setAttribute("data-filename",Q.getAttribute("src")||`inline-${W}`)}})});var b=window.parent;if(b&&b!==window){const V=(z,k)=>{try{b.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const J=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");V(z,J);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";V("resource_error",`${k.tagName} failed to load: ${C}`)}else{V("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);V("error",`Unhandled rejection: ${C}`)});const $=()=>{try{b.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")$();else window.addEventListener("load",$);if(window.ResizeObserver)new ResizeObserver($).observe(document.documentElement);const Z={};let Q=0;window.claude={complete(z){return new Promise((k,C)=>{if(!A.length){C(new Error("claude.complete: no parent origin"));return}const J=`c${++Q}`;const w=()=>setTimeout(()=>{delete Z[J];C(new Error(`claude.complete: no data for ${L/1000}s`))},L);const Y=w();Z[J]={resolve:k,reject:C,text:"",t:Y,arm:w};try{for(const F of A){b.postMessage({__om_api:true,id:J,body:z},F)}}catch(F){clearTimeout(Y);delete Z[J];C(F)}})}};const W={};let X=0;window.omelette={writeFile:(z,k)=>new Promise((C,J)=>{if(!A.length){C();return}const w=`f${++X}`;const Y=setTimeout(()=>{delete W[w];C()},u);W[w]={resolve:C,reject:J,t:Y};try{for(const F of A){b.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},F)}}catch{clearTimeout(Y);delete W[w];C()}})};const K=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if(A.indexOf(z.origin)<0)return;if(z.source!==b)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=W[k.id];if(!w)return;clearTimeout(w.t);delete W[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=Z[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete Z[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete Z[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const J=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((Y)=>J({ok:1,v:K(Y)}),(Y)=>J({ok:0,e:String(Y)}))}else{J({ok:1,v:K(w)})}}catch(w){J({ok:0,e:String(w)})}})}})();
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart of Accounts Practice — ACCT 2301</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Slab:ital,wght@0,400;0,600;0,900;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --violet:   #262D68;
+      --violet-h: #1a2050;
+      --yellow:   #D7DF23;
+      --orange:   #FF9F1C;
+      --blue:     #1a5fa8;
+      --red:      #a31524;
+      --green:    #0A713A;
+      --bg:       #f2f1ed;
+      --card:     #ffffff;
+      --text:     #1a1c2e;
+      --muted:    #4d5080;
+      --border:   #c8cade;
+    }
+
+    /* ── Accessibility ─────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -48px; left: 0;
+      background: var(--yellow); color: #111; padding: 10px 18px;
+      font-family: 'Roboto Slab', serif; font-weight: 600;
+      border-radius: 0 0 6px 0; text-decoration: none; z-index: 200;
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+
+    /* ── Base ──────────────────────────────────────────────────────── */
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto Slab', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    /* ── Header ────────────────────────────────────────────────────── */
+    .site-header {
+      background: var(--violet);
+      padding: 18px 24px 14px;
+      display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    }
+    .site-header h1 {
+      font-family: 'Bungee', cursive;
+      font-size: clamp(1.15rem, 3.5vw, 1.55rem);
+      color: #fff;
+      letter-spacing: 0.025em;
+      line-height: 1.1;
+    }
+    .course-tag {
+      font-size: 0.8rem; color: rgba(255,255,255,0.72); font-weight: 400;
+    }
+    .yellow-stripe { height: 5px; background: var(--yellow); }
+
+    /* ── Layout ────────────────────────────────────────────────────── */
+    main { max-width: 740px; margin: 0 auto; padding: 28px 16px 80px; }
+
+    .stack    { display: flex; flex-direction: column; gap: 12px; }
+    .stack-lg { display: flex; flex-direction: column; gap: 22px; }
+    .row      { display: flex; align-items: center; gap: 12px; }
+    .row-between { display: flex; justify-content: space-between; align-items: center; }
+
+    /* ── Cards ─────────────────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(38,45,104,.09), 0 1px 3px rgba(38,45,104,.07);
+      padding: 28px;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 22px; border-radius: 8px;
+      font-family: 'Roboto Slab', serif; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; border: 2px solid transparent;
+      transition: background .15s, border-color .15s, transform .1s, box-shadow .15s;
+      text-decoration: none; line-height: 1.3;
+    }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary { background: var(--violet); color: #fff; border-color: var(--violet); }
+    .btn-primary:hover { background: var(--violet-h); border-color: var(--violet-h); }
+
+    .btn-ghost { background: transparent; color: var(--violet); border-color: var(--violet); }
+    .btn-ghost:hover { background: #eeeef8; }
+
+    /* ── Mode Cards (home) ─────────────────────────────────────────── */
+    .mode-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      cursor: pointer;
+      transition: border-color .15s, box-shadow .15s, transform .12s;
+      text-align: left; width: 100%;
+      font-family: 'Roboto Slab', serif;
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .mode-card:hover {
+      border-color: var(--violet);
+      box-shadow: 0 6px 20px rgba(38,45,104,.14);
+      transform: translateY(-2px);
+    }
+    .mode-card:active { transform: translateY(0); }
+    .mode-card:focus-visible { outline-offset: 4px; }
+
+    .mode-num {
+      font-family: 'Bungee', cursive;
+      font-size: 2.2rem; color: var(--violet);
+      line-height: 1; min-width: 48px; text-align: center;
+      margin-top: 2px;
+    }
+    .mode-body h2 { font-size: 1.05rem; color: var(--text); margin-bottom: 4px; }
+    .mode-body p  { font-size: 0.875rem; color: var(--muted); font-weight: 400; line-height: 1.45; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px; border-radius: 99px;
+      font-size: 0.75rem; font-weight: 600; margin-top: 8px;
+    }
+
+    /* ── Progress Bar ──────────────────────────────────────────────── */
+    .progress-track {
+      height: 8px; background: #dfe0ee; border-radius: 99px;
+      overflow: hidden; margin-bottom: 22px;
+    }
+    .progress-fill {
+      height: 100%; background: var(--violet); border-radius: 99px;
+      transition: width .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Answer Buttons ────────────────────────────────────────────── */
+    .ans-btn {
+      width: 100%; text-align: left;
+      padding: 13px 16px; border-radius: 10px;
+      font-family: 'Roboto Slab', serif; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; border: 2px solid var(--border);
+      background: var(--card); color: var(--text);
+      transition: background .12s, border-color .12s, transform .1s, color .12s;
+      display: flex; align-items: center; gap: 10px;
+      line-height: 1.35; min-height: 50px;
+    }
+    .ans-btn:hover:not(:disabled) { background: #eeeef8; border-color: var(--violet); }
+    .ans-btn:active:not(:disabled) { transform: scale(0.99); }
+    .ans-btn:disabled { cursor: default; }
+
+    .ans-btn.state-correct  { background: var(--green); border-color: var(--green); color: #fff; }
+    .ans-btn.state-wrong    { background: var(--red);   border-color: var(--red);   color: #fff; }
+    .ans-btn.state-reveal   { background: var(--green); border-color: var(--green); color: #fff; }
+    .ans-btn.state-dimmed   { opacity: .40; }
+
+    .ans-icon { font-size: 1.05em; flex-shrink: 0; width: 20px; text-align: center; }
+
+    /* ── Feedback Banner ───────────────────────────────────────────── */
+    .feedback-box {
+      border-radius: 10px; padding: 14px 18px;
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-top: 16px; border-left: 5px solid;
+    }
+    .feedback-box.correct  { background: #e4f4eb; border-color: var(--green); color: #04401c; }
+    .feedback-box.wrong    { background: #fbeaec; border-color: var(--red);   color: #6b0a13; }
+    .feedback-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: -2px; }
+    .feedback-label { font-weight: 700; font-size: 1rem; margin-bottom: 3px; }
+    .feedback-text  { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
+
+    /* ── Question display ──────────────────────────────────────────── */
+    .q-label {
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .09em; margin-bottom: 8px;
+    }
+    .q-main {
+      font-family: 'Bungee', cursive;
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      color: var(--violet); line-height: 1.2; margin-bottom: 6px;
+      word-break: break-word;
+    }
+    .q-sub {
+      font-size: 0.85rem; color: var(--muted); font-weight: 400;
+      font-style: italic; margin-bottom: 24px;
+    }
+
+    /* ── Reference table ───────────────────────────────────────────── */
+    .ref-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .ref-table th {
+      background: var(--violet); color: #fff;
+      padding: 9px 12px; text-align: left; font-weight: 600;
+    }
+    .ref-table th:first-child { border-radius: 6px 0 0 0; }
+    .ref-table th:last-child  { border-radius: 0 6px 0 0; }
+    .ref-table td { padding: 9px 12px; border-bottom: 1px solid #e8e8ee; vertical-align: top; }
+    .ref-table tr:last-child td { border-bottom: none; }
+    .ref-table tr:nth-child(even) td { background: #f8f8fb; }
+
+    /* ── Results ───────────────────────────────────────────────────── */
+    .score-circle {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: var(--violet);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; margin: 0 auto 16px;
+      box-shadow: 0 4px 20px rgba(38,45,104,.25);
+    }
+    .score-num   { font-family: 'Bungee', cursive; font-size: 2.2rem; color: #fff; line-height: 1; }
+    .score-denom { font-size: 0.8rem; color: rgba(255,255,255,.7); margin-top: 2px; }
+
+    .section-heading {
+      font-family: 'Bungee', cursive;
+      font-size: 1.2rem; color: var(--violet);
+      letter-spacing: .02em; margin-bottom: 14px;
+    }
+
+    /* ── Tweaks panel ──────────────────────────────────────────────── */
+    .tweaks-panel {
+      position: fixed; bottom: 20px; right: 20px;
+      background: var(--violet); color: #fff;
+      border-radius: 14px; padding: 18px 22px;
+      box-shadow: 0 8px 28px rgba(38,45,104,.35);
+      width: 260px; font-size: 0.875rem;
+      z-index: 100;
+      display: none;
+    }
+    .tweaks-panel.open { display: block; }
+    .tweaks-panel h3 {
+      font-family: 'Bungee', cursive; font-size: 1rem; margin-bottom: 14px;
+      letter-spacing: .03em;
+    }
+    .tweak-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px;
+    }
+    .tweak-row label { font-weight: 600; }
+    .tweak-row select, .tweak-row input[type=range] {
+      font-family: 'Roboto Slab', serif;
+      border-radius: 6px; border: none;
+      padding: 4px 8px; font-size: 0.85rem;
+      background: rgba(255,255,255,.15); color: #fff;
+      cursor: pointer;
+    }
+    .tweak-row input[type=range] { padding: 0; width: 100px; accent-color: var(--yellow); }
+    .tweak-row input[type=checkbox] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--yellow); }
+
+    /* ── Details/summary ───────────────────────────────────────────── */
+    details summary { cursor: pointer; list-style: none; user-select: none; }
+    details summary::-webkit-details-marker { display: none; }
+
+    /* ── Animations ────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .25s ease both; }
+
+    @media (max-width: 480px) {
+      .card { padding: 18px; }
+      .site-header { padding: 14px 16px 12px; }
+    }
+  </style>
+<style>#instructor-links{display:none!important}</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <h1>Chart of Accounts Practice</h1>
+    <span class="course-tag" aria-label="Course: ACCT 2301, Financial Accounting">ACCT 2301 — Financial Accounting</span>
+  </header>
+  <div class="yellow-stripe" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <div id="root"></div>
+  </main>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    /* ════════════════════════════════════════════════════════════════
+       DATA
+    ════════════════════════════════════════════════════════════════ */
+    const CATEGORIES = {
+      ASSETS:      { label: 'Assets',                 desc: 'Resources of a company',            statement: 'Balance Sheet',                     color: '#1a5fa8', light: '#e6f0fb' },
+      LIABILITIES: { label: 'Liabilities',            desc: 'Amounts owed by the company',       statement: 'Balance Sheet',                     color: '#7a3a00', light: '#fef0e0' },
+      EQUITY:      { label: "Stockholders' Equity",   desc: "Owners' claims to the company",     statement: 'Balance Sheet',                     color: '#262D68', light: '#eeeef8' },
+      DIVIDENDS:   { label: 'Dividends',              desc: 'Distributions to owners',           statement: "Statement of Stockholders' Equity", color: '#5c4800', light: '#fdfbe0' },
+      REVENUES:    { label: 'Revenues',               desc: 'Sales of products or services',     statement: 'Income Statement',                  color: '#0A713A', light: '#e4f4eb' },
+      EXPENSES:    { label: 'Expenses',               desc: 'Costs of providing products/sales', statement: 'Income Statement',                  color: '#a31524', light: '#fbeaec' },
+    };
+
+    const STATEMENTS = [
+      'Income Statement',
+      'Balance Sheet',
+      "Statement of Stockholders' Equity",
+      'Statement of Cash Flows',
+    ];
+
+    const ACCOUNTS = [
+      // ASSETS
+      { name: 'Cash',                                  cat: 'ASSETS' },
+      { name: 'Petty Cash',                            cat: 'ASSETS' },
+      { name: 'Accounts Receivable',                   cat: 'ASSETS' },
+      { name: 'Allowance for Uncollectible Accounts',  cat: 'ASSETS' },
+      { name: 'Notes Receivable',                      cat: 'ASSETS' },
+      { name: 'Interest Receivable',                   cat: 'ASSETS' },
+      { name: 'Supplies',                              cat: 'ASSETS' },
+      { name: 'Inventory',                             cat: 'ASSETS' },
+      { name: 'Prepaid Insurance',                     cat: 'ASSETS' },
+      { name: 'Prepaid Rent',                          cat: 'ASSETS' },
+      { name: 'Prepaid Advertising',                   cat: 'ASSETS' },
+      { name: 'Investments',                           cat: 'ASSETS' },
+      { name: 'Land',                                  cat: 'ASSETS' },
+      { name: 'Land Improvements',                     cat: 'ASSETS' },
+      { name: 'Buildings',                             cat: 'ASSETS' },
+      { name: 'Equipment',                             cat: 'ASSETS' },
+      { name: 'Accumulated Depreciation',              cat: 'ASSETS' },
+      { name: 'Lease Asset',                           cat: 'ASSETS' },
+      { name: 'Natural Resources',                     cat: 'ASSETS' },
+      { name: 'Patents',                               cat: 'ASSETS' },
+      { name: 'Copyrights',                            cat: 'ASSETS' },
+      { name: 'Trademarks',                            cat: 'ASSETS' },
+      { name: 'Franchises',                            cat: 'ASSETS' },
+      { name: 'Goodwill',                              cat: 'ASSETS' },
+      // LIABILITIES
+      { name: 'Accounts Payable',                      cat: 'LIABILITIES' },
+      { name: 'Notes Payable',                         cat: 'LIABILITIES' },
+      { name: 'Deferred Revenue',                      cat: 'LIABILITIES' },
+      { name: 'Salaries Payable',                      cat: 'LIABILITIES' },
+      { name: 'Interest Payable',                      cat: 'LIABILITIES' },
+      { name: 'Utilities Payable',                     cat: 'LIABILITIES' },
+      { name: 'Dividends Payable',                     cat: 'LIABILITIES' },
+      { name: 'Income Tax Payable',                    cat: 'LIABILITIES' },
+      { name: 'Employee Income Tax Payable',           cat: 'LIABILITIES' },
+      { name: 'FICA Tax Payable',                      cat: 'LIABILITIES' },
+      { name: 'Sales Tax Payable',                     cat: 'LIABILITIES' },
+      { name: 'Warranty Liability',                    cat: 'LIABILITIES' },
+      { name: 'Lease Payable',                         cat: 'LIABILITIES' },
+      { name: 'Bonds Payable',                         cat: 'LIABILITIES' },
+      { name: 'Contingent Liability',                  cat: 'LIABILITIES' },
+      { name: 'Fringe Benefits Payable',               cat: 'LIABILITIES' },
+      { name: 'Unemployment Tax Payable',              cat: 'LIABILITIES' },
+      // EQUITY
+      { name: 'Common Stock',                          cat: 'EQUITY' },
+      { name: 'Preferred Stock',                       cat: 'EQUITY' },
+      { name: 'Additional Paid-in Capital',            cat: 'EQUITY' },
+      { name: 'Retained Earnings',                     cat: 'EQUITY' },
+      { name: 'Treasury Stock',                        cat: 'EQUITY' },
+      // DIVIDENDS
+      { name: 'Dividends (Cash)',                      cat: 'DIVIDENDS' },
+      { name: 'Stock Dividends',                       cat: 'DIVIDENDS' },
+      // REVENUES
+      { name: 'Service Revenue',                       cat: 'REVENUES' },
+      { name: 'Sales Revenue',                         cat: 'REVENUES' },
+      { name: 'Interest Revenue',                      cat: 'REVENUES' },
+      { name: 'Dividend Revenue',                      cat: 'REVENUES' },
+      { name: 'Equity Income',                         cat: 'REVENUES' },
+      { name: 'Gain',                                  cat: 'REVENUES' },
+      { name: 'Sales Discounts',                       cat: 'REVENUES' },
+      { name: 'Sales Returns',                         cat: 'REVENUES' },
+      { name: 'Sales Allowances',                      cat: 'REVENUES' },
+      // EXPENSES
+      { name: 'Advertising Expense',                   cat: 'EXPENSES' },
+      { name: 'Amortization Expense',                  cat: 'EXPENSES' },
+      { name: 'Bad Debt Expense',                      cat: 'EXPENSES' },
+      { name: 'Cost of Goods Sold',                    cat: 'EXPENSES' },
+      { name: 'Delivery Expense',                      cat: 'EXPENSES' },
+      { name: 'Depreciation Expense',                  cat: 'EXPENSES' },
+      { name: 'Income Tax Expense',                    cat: 'EXPENSES' },
+      { name: 'Insurance Expense',                     cat: 'EXPENSES' },
+      { name: 'Interest Expense',                      cat: 'EXPENSES' },
+      { name: 'Legal Fees Expense',                    cat: 'EXPENSES' },
+      { name: 'Payroll Tax Expense',                   cat: 'EXPENSES' },
+      { name: 'Property Tax Expense',                  cat: 'EXPENSES' },
+      { name: 'Rent Expense',                          cat: 'EXPENSES' },
+      { name: 'Repairs and Maintenance Expense',       cat: 'EXPENSES' },
+      { name: 'Research and Development Expense',      cat: 'EXPENSES' },
+      { name: 'Salaries Expense',                      cat: 'EXPENSES' },
+      { name: 'Service Fee Expense',                   cat: 'EXPENSES' },
+      { name: 'Supplies Expense',                      cat: 'EXPENSES' },
+      { name: 'Utilities Expense',                     cat: 'EXPENSES' },
+      { name: 'Warranty Expense',                      cat: 'EXPENSES' },
+      { name: 'Loss',                                  cat: 'EXPENSES' },
+    ];
+
+    /* ════════════════════════════════════════════════════════════════
+       HELPERS
+    ════════════════════════════════════════════════════════════════ */
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function startsWithVowel(s) { return 'AEIOU'.includes(s[0].toUpperCase()); }
+
+    const LEVELS_KEY = 'acct2301_levels';
+    const _BAKED_LEVELS = {"Cash":1,"Petty Cash":0,"Accounts Receivable":1,"Allowance for Uncollectible Accounts":2,"Notes Receivable":1,"Interest Receivable":1,"Supplies":1,"Inventory":2,"Prepaid Insurance":1,"Prepaid Rent":1,"Prepaid Advertising":1,"Land":1,"Buildings":1,"Land Improvements":0,"Equipment":1,"Accumulated Depreciation":2,"Patents":2,"Copyrights":2,"Trademarks":2,"Franchises":2,"Goodwill":2,"Accounts Payable":1,"Notes Payable":1,"Deferred Revenue":1,"Salaries Payable":1,"Interest Payable":1,"Utilities Payable":1,"Dividends Payable":3,"Income Tax Payable":2,"Employee Income Tax Payable":3,"FICA Tax Payable":3,"Sales Tax Payable":3,"Warranty Liability":3,"Bonds Payable":3,"Contingent Liability":3,"Fringe Benefits Payable":3,"Unemployment Tax Payable":3,"Common Stock":1,"Preferred Stock":3,"Additional Paid-in Capital":3,"Retained Earnings":1,"Treasury Stock":3,"Dividends (Cash)":1,"Stock Dividends":3,"Service Revenue":1,"Sales Revenue":2,"Interest Revenue":1,"Gain":2,"Sales Discounts":2,"Sales Returns":2,"Sales Allowances":2,"Advertising Expense":1,"Amortization Expense":2,"Bad Debt Expense":2,"Cost of Goods Sold":2,"Delivery Expense":1,"Depreciation Expense":1,"Income Tax Expense":1,"Insurance Expense":1,"Interest Expense":1,"Legal Fees Expense":1,"Payroll Tax Expense":3,"Property Tax Expense":1,"Rent Expense":1,"Repairs and Maintenance Expense":1,"Salaries Expense":1,"Service Fee Expense":1,"Supplies Expense":1,"Utilities Expense":1,"Warranty Expense":3,"Loss":2};
+    function loadLevels() { return Object.assign({}, _BAKED_LEVELS); }
+
+    const SCF_NOTE = 'The Statement of Cash Flows is derived from changes in balance sheet accounts and cash activity — it does not have its own account category in the chart of accounts.';
+
+    function generateQuestions(mode, count, pool = ACCOUNTS) {
+      if (mode === 1) {
+        return shuffle(pool).slice(0, count).map(acc => {
+          const cat = CATEGORIES[acc.cat];
+          return {
+            id: Math.random(),
+            stem: 'Which category does this account belong to?',
+            highlight: acc.name,
+            sub: null,
+            options: Object.entries(CATEGORIES).map(([k, c]) => ({ key: k, label: c.label })),
+            answer: acc.cat,
+            explanation: `${acc.name} is a${startsWithVowel(cat.label) ? 'n' : ''} ${cat.label} account — ${cat.desc}.`,
+          };
+        });
+      }
+
+      if (mode === 2) {
+        return shuffle(Object.entries(CATEGORIES)).map(([key, cat]) => ({
+          id: Math.random(),
+          stem: 'Which financial statement features this category?',
+          highlight: cat.label,
+          sub: cat.desc,
+          options: STATEMENTS.map(s => ({ key: s, label: s })),
+          answer: cat.statement,
+          explanation: `${cat.label} accounts (${cat.desc}) appear on the ${cat.statement}.`,
+        }));
+      }
+
+      if (mode === 3) {
+        return shuffle(pool).slice(0, count).map(acc => {
+          const cat = CATEGORIES[acc.cat];
+          return {
+            id: Math.random(),
+            twopart: true,
+            highlight: acc.name,
+            answerCat: acc.cat,
+            answerStatement: cat.statement,
+            catOptions: Object.entries(CATEGORIES).map(([k,c]) => ({ key: k, label: c.label })),
+            stmtOptions: STATEMENTS.map(s => ({ key: s, label: s })),
+            explanationCat: `${acc.name} is a${startsWithVowel(cat.label) ? 'n' : ''} ${cat.label} account — ${cat.desc}.`,
+            explanationStmt: `${cat.label} accounts appear on the ${cat.statement}.`,
+          };
+        });
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       WELCOME SCREEN
+    ════════════════════════════════════════════════════════════════ */
+    function WelcomeScreen({ onStart, levels }) {
+      const hasSections = ACCOUNTS.some(a => (levels[a.name]||0) > 0);
+      const sectionCounts = [1,2,3].map(s => ACCOUNTS.filter(a=>(levels[a.name]||0)===s).length);
+
+      const modes = [
+        { num:'01', title:'Identify the Category', desc:"Given an account name, pick which of the 6 categories it belongs to — Assets, Liabilities, Stockholders' Equity, Dividends, Revenues, or Expenses.", badge:'Foundational', badgeColor:'#0A713A', badgeBg:'#e4f4eb' },
+        { num:'02', title:'Category to Statement', desc:'Given a category name, identify which of the 4 financial statements it appears on — Income Statement, Balance Sheet, Statement of Stockholders\' Equity, or Statement of Cash Flows.', badge:'Intermediate', badgeColor:'#7a3a00', badgeBg:'#fef0e0' },
+        { num:'03', title:'Full Challenge', desc:'Two steps per account: first identify the category, then identify the financial statement. Works through both skills together.', badge:'Advanced', badgeColor:'#a31524', badgeBg:'#fbeaec' },
+      ];
+
+      return (
+        <div className="fade-up">
+          <div style={{background:'var(--violet)', borderRadius:16, padding:'32px 28px', marginBottom:20, color:'#fff', position:'relative', overflow:'hidden'}}>
+            <div aria-hidden="true" style={{position:'absolute',top:-30,right:-30,width:180,height:180,borderRadius:'50%',background:'rgba(215,223,35,.10)'}} />
+            <div aria-hidden="true" style={{position:'absolute',bottom:-40,right:40,width:120,height:120,borderRadius:'50%',background:'rgba(255,159,28,.08)'}} />
+            <p style={{fontFamily:'Bungee,cursive',fontSize:'0.78rem',letterSpacing:'.12em',color:'rgba(215,223,35,.85)',marginBottom:10}}>ACCT 2301 — FINANCIAL ACCOUNTING</p>
+            <h1 style={{fontFamily:'Bungee,cursive',fontSize:'clamp(1.5rem,5vw,2.2rem)',lineHeight:1.1,marginBottom:12}}>Chart of Accounts<br/>Practice Tool</h1>
+            <p style={{fontWeight:400,fontSize:'0.95rem',lineHeight:1.65,color:'rgba(255,255,255,.85)',maxWidth:520,marginBottom:24}}>
+              Practice identifying accounts, the categories they belong to, and the financial statements they appear on — based on the Chapter 1 Framework for Financial Accounting.
+            </p>
+            <button className="btn" onClick={onStart} style={{background:'var(--yellow)',color:'#111',border:'none',fontSize:'1rem',padding:'13px 28px',fontWeight:700}}>
+              Start Practicing
+            </button>
+          </div>
+
+          <div className="card" style={{marginBottom:20}}>
+            <h2 className="section-heading">How to Use This Tool</h2>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(210px,1fr))',gap:16,marginBottom:20}}>
+              {[
+                { step:'1', title:'Pick a Mode', desc:'If you are in the first section of the course (before Exam 1), choose Section 1. Sections 2 and 3 will introduce new accounts for those respective sections.' },
+                { step:'2', title:'Answer Questions', desc:'Read the account or category shown, then click the answer you think is correct.' },
+                { step:'3', title:'Get Instant Feedback', desc:'See immediately if you are right, with a brief explanation. Then move to the next question.' },
+                { step:'4', title:'Review Your Misses', desc:'At the end, a list of every missed question helps you focus your studying.' },
+              ].map(s => (
+                <div key={s.step} style={{display:'flex',gap:12,alignItems:'flex-start'}}>
+                  <div style={{width:32,height:32,borderRadius:'50%',background:'var(--violet)',color:'#fff',fontFamily:'Bungee,cursive',fontSize:'1rem',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>{s.step}</div>
+                  <div>
+                    <p style={{fontWeight:700,marginBottom:3,fontSize:'0.9rem'}}>{s.title}</p>
+                    <p style={{fontWeight:400,fontSize:'0.83rem',color:'var(--muted)',lineHeight:1.5}}>{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{background:'#f2f1ed',borderRadius:10,padding:'14px 18px',borderLeft:'4px solid var(--yellow)'}}>
+              <p style={{fontWeight:700,fontSize:'0.88rem',marginBottom:6}}>Tips for success</p>
+              <ul style={{fontWeight:400,fontSize:'0.83rem',color:'var(--muted)',lineHeight:1.75,paddingLeft:18}}>
+                <li>Use the <strong>Quick Reference card</strong> on the home screen to review before you start.</li>
+                <li>Hit <strong>Try Again</strong> after finishing — each attempt draws a fresh random set of questions.</li>
+                <li>Watch out for tricky accounts: <em>Deferred Revenue</em> is a Liability, and <em>Dividends Payable</em> is a Liability too!</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="card" style={{marginBottom:20}}>
+            <h2 className="section-heading">The 3 Practice Modes</h2>
+            <div className="stack">
+              {modes.map(m => (
+                <div key={m.num} style={{display:'flex',alignItems:'flex-start',gap:16,padding:'14px',border:'2px solid #eee',borderRadius:10}}>
+                  <div style={{fontFamily:'Bungee,cursive',fontSize:'1.8rem',color:'var(--violet)',lineHeight:1,minWidth:44}}>{m.num}</div>
+                  <div>
+                    <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap',marginBottom:4}}>
+                      <p style={{fontWeight:700,fontSize:'0.95rem'}}>{m.title}</p>
+                      <span style={{background:m.badgeBg,color:m.badgeColor,padding:'2px 9px',borderRadius:99,fontSize:'0.75rem',fontWeight:700}}>{m.badge}</span>
+                    </div>
+                    <p style={{fontWeight:400,fontSize:'0.85rem',color:'var(--muted)',lineHeight:1.5}}>{m.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {hasSections && (
+            <div className="card" style={{marginBottom:20}}>
+              <h2 className="section-heading">Filtering by Section</h2>
+              <p style={{fontWeight:400,fontSize:'0.875rem',color:'var(--muted)',lineHeight:1.6,marginBottom:14}}>
+                On the home screen you can filter questions to only show accounts from a specific section, so you can focus your practice on exactly what is covered so far.
+              </p>
+              <div style={{display:'flex',gap:10,flexWrap:'wrap'}}>
+                {[1,2,3].map(s => sectionCounts[s-1] > 0 && (
+                  <div key={s} style={{padding:'10px 16px',borderRadius:8,background:s===1?'#e4f4eb':s===2?'#fef0e0':'#eeeef8',border:`2px solid ${s===1?'#0A713A':s===2?'#7a3a00':'#262D68'}`}}>
+                    <p style={{fontWeight:700,color:s===1?'#0A713A':s===2?'#7a3a00':'#262D68',fontSize:'0.85rem'}}>Section {s}</p>
+                    <p style={{fontWeight:400,fontSize:'0.8rem',color:'var(--muted)'}}>{sectionCounts[s-1]} accounts</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div style={{textAlign:'center',paddingBottom:8}}>
+            <button className="btn btn-primary" onClick={onStart} style={{fontSize:'1rem',padding:'13px 32px'}}>
+              I am ready — Start Practicing
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       REFERENCE CARD
+    ════════════════════════════════════════════════════════════════ */
+    function ReferenceCard() {
+      return (
+        <details className="card" style={{padding:0}}>
+          <summary style={{
+            padding:'16px 22px', display:'flex', alignItems:'center',
+            justifyContent:'space-between', fontWeight:600, color:'var(--violet)',
+            borderRadius:14,
+          }}>
+            <span>Quick Reference — Accounts &amp; Statements</span>
+            <span style={{fontSize:'0.8rem', fontWeight:400, color:'var(--muted)'}}>click to expand</span>
+          </summary>
+          <div style={{padding:'0 22px 22px'}}>
+            <table className="ref-table" role="table" aria-label="Account categories and financial statements reference">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Definition</th>
+                  <th scope="col">Financial Statement</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(CATEGORIES).map(([key, cat], i) => (
+                  <tr key={key}>
+                    <td style={{fontFamily:'Bungee,cursive', color:'var(--violet)', width:32}}>{i+1}</td>
+                    <td style={{fontWeight:600, color: cat.color, whiteSpace:'nowrap'}}>{cat.label}</td>
+                    <td style={{fontWeight:400, color:'var(--muted)'}}>{cat.desc}</td>
+                    <td style={{fontWeight:600}}>{cat.statement}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div style={{marginTop:16, display:'grid', gridTemplateColumns:'1fr 1fr', gap:8}}>
+              {[
+                ['Income Statement',              'Revenues − Expenses = Net Income'],
+                ['Balance Sheet',                 'Assets = Liabilities + Equity'],
+                ["Statement of Stockholders' Equity", 'Common Stock + Retained Earnings'],
+                ['Statement of Cash Flows',       'Operating + Investing + Financing = ΔCash'],
+              ].map(([name, eq]) => (
+                <div key={name} style={{
+                  background:'#f2f1ed', borderRadius:8, padding:'10px 12px',
+                  borderLeft:'3px solid var(--violet)',
+                }}>
+                  <p style={{fontWeight:700, color:'var(--violet)', fontSize:'0.8rem', marginBottom:2}}>{name}</p>
+                  <p style={{fontWeight:400, color:'var(--muted)', fontSize:'0.8rem'}}>{eq}</p>
+                </div>
+              ))}
+            </div>
+
+            <p style={{fontSize:'0.78rem', color:'var(--muted)', fontStyle:'italic', marginTop:12, fontWeight:400}}>
+              Note: The Statement of Cash Flows shows cash inflows/outflows by activity type and does not map directly to one of the 6 account categories.
+            </p>
+          </div>
+        </details>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       HOME SCREEN
+    ════════════════════════════════════════════════════════════════ */
+    function HomeScreen({ onStart, qCount, section, setSection, levels }) {
+      const sectionCounts = [0,1,2,3].map(s =>
+        s === 0 ? ACCOUNTS.length : ACCOUNTS.filter(a => (levels[a.name]||0) === s).length
+      );
+      const hasSetup = ACCOUNTS.some(a => (levels[a.name]||0) > 0);
+      const sectionOptions = [
+        { val: 0, label: 'All Accounts',   color: 'var(--violet)', light: '#eeeef8' },
+        { val: 1, label: 'Section 1',      color: '#0A713A',       light: '#e4f4eb' },
+        { val: 2, label: 'Section 2',      color: '#7a3a00',       light: '#fef0e0' },
+        { val: 3, label: 'Section 3',      color: '#262D68',       light: '#eeeef8' },
+      ];
+      const modes = [
+        {
+          id: 1, num: '01',
+          title: 'Identify the Category',
+          desc: 'Given an account name, select which of the 6 categories it belongs to: Assets, Liabilities, Stockholders\' Equity, Dividends, Revenues, or Expenses.',
+          badge: 'Foundational', badgeBg: '#e4f4eb', badgeColor: '#0A713A',
+          count: qCount,
+        },
+        {
+          id: 2, num: '02',
+          title: 'Category → Statement',
+          desc: 'Given a category name, identify which of the 4 primary financial statements it appears on. All 6 categories are covered.',
+          badge: 'Intermediate', badgeBg: '#fef0e0', badgeColor: '#7a3a00',
+          count: 6,
+        },
+        {
+          id: 3, num: '03',
+          title: 'Full Challenge',
+          desc: 'Two steps per account: first identify the category, then identify the financial statement. Combines both skills.',
+          badge: 'Advanced', badgeBg: '#fbeaec', badgeColor: '#a31524',
+          count: qCount,
+        },
+      ];
+
+      return (
+        <div className="stack-lg fade-up">
+          <div>
+            <h2 className="section-heading">Choose a Practice Mode</h2>
+            <p style={{color:'var(--muted)', fontWeight:400, fontSize:'0.95rem', lineHeight:1.6}}>
+              Practice identifying accounts, their categories, and the financial statements they appear on —
+              based on the Chapter 1 Framework for Financial Accounting.
+            </p>
+          </div>
+
+          {/* Section filter */}
+          <div className="card" style={{padding:'18px 22px'}}>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:8}}>
+              <p style={{fontWeight:700, color:'var(--violet)', fontSize:'0.9rem'}}>Filter by Section</p>
+              {!hasSetup && (
+                <span id="instructor-links">
+                <a href="Account Level Setup.html" style={{fontSize:'0.8rem', color:'var(--violet)', fontWeight:600, textDecoration:'underline'}}>
+                  Set up section levels →
+                </a>
+                </span>
+              )}
+              {hasSetup && (
+                <span id="instructor-links">
+                <a href="Account Level Setup.html" style={{fontSize:'0.8rem', color:'var(--muted)', fontWeight:400, textDecoration:'underline'}}>
+                  Edit section assignments
+                </a>
+                </span>
+              )}
+            </div>
+            <div role="group" aria-label="Filter accounts by section" style={{display:'flex', gap:8, flexWrap:'wrap'}}>
+              {sectionOptions.map(opt => {
+                const count = sectionCounts[opt.val];
+                const active = section === opt.val;
+                const disabled = opt.val > 0 && count === 0;
+                return (
+                  <button
+                    key={opt.val}
+                    onClick={() => !disabled && setSection(opt.val)}
+                    disabled={disabled}
+                    aria-pressed={active}
+                    aria-label={`${opt.label}: ${count} accounts${disabled ? ' — none assigned yet' : ''}`}
+                    style={{
+                      padding:'8px 16px', borderRadius:8, border:'2px solid',
+                      fontFamily:'Roboto Slab,serif', fontWeight:700, fontSize:'0.85rem',
+                      cursor: disabled ? 'not-allowed' : 'pointer',
+                      opacity: disabled ? 0.4 : 1,
+                      background: active ? opt.color : opt.light,
+                      color: active ? '#fff' : opt.color,
+                      borderColor: opt.color,
+                      transition:'background .15s, color .15s',
+                      display:'flex', alignItems:'center', gap:7,
+                    }}
+                  >
+                    {opt.label}
+                    <span style={{
+                      background: active ? 'rgba(255,255,255,.25)' : opt.color + '22',
+                      color: active ? '#fff' : opt.color,
+                      borderRadius:99, padding:'1px 7px', fontSize:'0.78rem', fontWeight:700,
+                    }}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {section > 0 && sectionCounts[section] === 0 && (
+              <p style={{marginTop:10, fontSize:'0.82rem', color:'var(--red)', fontWeight:600}}>
+                No accounts assigned to Section {section} yet. <a href="Account Level Setup.html" style={{color:'var(--red)'}}>Set them up →</a>
+              </p>
+            )}
+            {section > 0 && sectionCounts[section] > 0 && (
+              <p style={{marginTop:10, fontSize:'0.82rem', color:'var(--muted)', fontWeight:400}}>
+                Quiz will draw from {sectionCounts[section]} Section {section} account{sectionCounts[section] !== 1 ? 's' : ''}.
+              </p>
+            )}
+          </div>
+
+          <ReferenceCard />
+
+          <div className="stack" role="list" aria-label="Practice modes">
+            {modes.map(m => (
+              <button
+                key={m.id}
+                className="mode-card"
+                role="listitem"
+                onClick={() => onStart(m.id, m.count)}
+                aria-label={`Mode ${m.num}: ${m.title}. Difficulty: ${m.badge}. ${m.desc}`}
+              >
+                <div className="mode-num" aria-hidden="true">{m.num}</div>
+                <div className="mode-body">
+                  <h2>{m.title}</h2>
+                  <p>{m.desc}</p>
+                  <span className="badge" style={{background: m.badgeBg, color: m.badgeColor}}>
+                    {m.badge}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       TWO-PART QUESTION (Mode 3)
+    ════════════════════════════════════════════════════════════════ */
+    function TwoPartQuestion({ q, onSubmit }) {
+      const [selCat,  setSelCat]  = useState(null);
+      const [selStmt, setSelStmt] = useState(null);
+      const [checked, setChecked] = useState(false);
+
+      const catCorrect  = selCat  === q.answerCat;
+      const stmtCorrect = selStmt === q.answerStatement;
+      const bothCorrect = catCorrect && stmtCorrect;
+
+      function catBtnClass(key) {
+        if (!checked) return selCat === key ? 'ans-btn' : 'ans-btn';
+        if (key === q.answerCat && key === selCat) return 'ans-btn state-correct';
+        if (key === selCat)      return 'ans-btn state-wrong';
+        if (key === q.answerCat) return 'ans-btn state-reveal';
+        return 'ans-btn state-dimmed';
+      }
+      function stmtBtnClass(key) {
+        if (!checked) return 'ans-btn';
+        if (key === q.answerStatement && key === selStmt) return 'ans-btn state-correct';
+        if (key === selStmt)            return 'ans-btn state-wrong';
+        if (key === q.answerStatement)  return 'ans-btn state-reveal';
+        return 'ans-btn state-dimmed';
+      }
+
+      return (
+        <div>
+          {/* Part 1 */}
+          <div style={{marginBottom: 22}}>
+            <p className="q-label">Part 1 — Which category does this account belong to?</p>
+            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:8}} role="group" aria-label="Category choices">
+              {q.catOptions.map(opt => {
+                const selected = selCat === opt.key;
+                return (
+                  <button
+                    key={opt.key}
+                    className={catBtnClass(opt.key)}
+                    onClick={() => !checked && setSelCat(opt.key)}
+                    disabled={checked}
+                    aria-pressed={selected}
+                    style={!checked && selected ? {borderColor:'var(--violet)', background:'#eeeef8'} : {}}
+                  >
+                    <span className="ans-icon" aria-hidden="true">
+                      {checked && opt.key === q.answerCat ? '✓' :
+                       checked && opt.key === selCat && opt.key !== q.answerCat ? '✗' : ''}
+                    </span>
+                    {opt.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div style={{borderTop:'2px dashed #e0e0ee', marginBottom:22, position:'relative'}}>
+            <span style={{
+              position:'absolute', top:-11, left:'50%', transform:'translateX(-50%)',
+              background:'#fff', padding:'0 10px',
+              fontSize:'0.78rem', fontWeight:700, color: selCat ? 'var(--violet)' : '#bbb',
+              letterSpacing:'.06em',
+            }}>THEN</span>
+          </div>
+
+          {/* Part 2 */}
+          <div style={{opacity: selCat ? 1 : 0.35, transition:'opacity .2s', pointerEvents: selCat ? 'auto' : 'none'}}>
+            <p className="q-label">Part 2 — Which financial statement features this account?</p>
+            {!selCat && <p style={{fontSize:'0.8rem', color:'var(--muted)', fontWeight:400, marginBottom:10, fontStyle:'italic'}}>Select a category above to unlock.</p>}
+            <div style={{display:'flex', flexDirection:'column', gap:8}} role="group" aria-label="Statement choices">
+              {q.stmtOptions.map(opt => {
+                const selected = selStmt === opt.key;
+                return (
+                  <button
+                    key={opt.key}
+                    className={stmtBtnClass(opt.key)}
+                    onClick={() => selCat && !checked && setSelStmt(opt.key)}
+                    disabled={checked || !selCat}
+                    aria-pressed={selected}
+                    style={!checked && selected ? {borderColor:'var(--violet)', background:'#eeeef8'} : {}}
+                  >
+                    <span className="ans-icon" aria-hidden="true">
+                      {checked && opt.key === q.answerStatement ? '✓' :
+                       checked && opt.key === selStmt && opt.key !== q.answerStatement ? '✗' : ''}
+                    </span>
+                    {opt.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Check Answers button */}
+          {!checked && selCat && selStmt && (
+            <button
+              className="btn btn-primary"
+              onClick={() => setChecked(true)}
+              style={{marginTop:18, width:'100%'}}
+            >
+              Check Answers
+            </button>
+          )}
+
+          {/* Feedback */}
+          {checked && (
+            <div style={{marginTop:16}}>
+              <div className={`feedback-box ${catCorrect ? 'correct' : 'wrong'}`} role="alert" style={{marginBottom:8}}>
+                <span className="feedback-icon" aria-hidden="true">{catCorrect ? '✓' : '✗'}</span>
+                <div>
+                  <p className="feedback-label">Category: {catCorrect ? 'Correct!' : 'Not quite.'}</p>
+                  <p className="feedback-text">{q.explanationCat}</p>
+                </div>
+              </div>
+              <div className={`feedback-box ${stmtCorrect ? 'correct' : 'wrong'}`} role="alert">
+                <span className="feedback-icon" aria-hidden="true">{stmtCorrect ? '✓' : '✗'}</span>
+                <div>
+                  <p className="feedback-label">Statement: {stmtCorrect ? 'Correct!' : 'Not quite.'}</p>
+                  <p className="feedback-text">{q.explanationStmt}</p>
+                  {!stmtCorrect && selStmt === 'Statement of Cash Flows' && (
+                    <p className="feedback-text" style={{marginTop:6, fontStyle:'italic'}}>{SCF_NOTE}</p>
+                  )}
+                </div>
+              </div>
+              <button
+                className="btn btn-primary"
+                onClick={() => onSubmit({ selCat, selStmt, catCorrect, stmtCorrect, bothCorrect })}
+                style={{marginTop:14, width:'100%'}}
+              >
+                Next Question →
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       QUIZ SCREEN
+    ════════════════════════════════════════════════════════════════ */
+    function QuizScreen({ mode, questions, onFinish, showHints }) {
+      const [idx, setIdx]         = useState(0);
+      const [selected, setSelected] = useState(null);
+      const [results, setResults] = useState([]);
+      const [animKey, setAnimKey] = useState(0);
+      const nextRef = useRef(null);
+      const cardRef = useRef(null);
+
+      const q        = questions[idx];
+      const answered = selected !== null;
+      const isCorrect = answered && selected === q.answer;
+      const correct  = results.filter(r => r.ok).length;
+      const total    = questions.length;
+
+      function choose(key) {
+        if (answered) return;
+        setSelected(key);
+        setTimeout(() => nextRef.current?.focus(), 80);
+      }
+
+      function next() {
+        const entry = { question: q, selected, correct: q.answer, ok: selected === q.answer };
+        const newResults = [...results, entry];
+        if (idx + 1 >= total) { onFinish(newResults); }
+        else {
+          setResults(newResults);
+          setIdx(i => i+1);
+          setSelected(null);
+          setAnimKey(k => k+1);
+          cardRef.current?.focus();
+        }
+      }
+
+      function handleTwoPart({ selCat, selStmt, catCorrect, stmtCorrect, bothCorrect }) {
+        const entry = {
+          twopart: true,
+          question: q,
+          selCat, selStmt,
+          catCorrect, stmtCorrect,
+          ok: bothCorrect,
+        };
+        const newResults = [...results, entry];
+        if (idx + 1 >= total) { onFinish(newResults); }
+        else {
+          setResults(newResults);
+          setIdx(i => i+1);
+          setAnimKey(k => k+1);
+          cardRef.current?.focus();
+        }
+      }
+
+      function btnClass(key) {
+        if (!answered) return '';
+        if (key === q.answer && key === selected) return 'state-correct';
+        if (key === selected)  return 'state-wrong';
+        if (key === q.answer)  return 'state-reveal';
+        return 'state-dimmed';
+      }
+
+      const isMode1 = mode === 1;
+      const optGrid = isMode1
+        ? { display:'grid', gridTemplateColumns:'1fr 1fr', gap:10 }
+        : { display:'flex', flexDirection:'column', gap:10 };
+
+      return (
+        <div className="stack-lg fade-up">
+          <div aria-live="polite" aria-atomic="true" className="sr-only">
+            {answered ? (isCorrect ? 'Correct. ' : 'Incorrect. ') + q.explanation
+              : `Question ${idx+1} of ${total}: ${q.stem || ''} ${q.highlight}`}
+          </div>
+
+          <div>
+            <div className="row-between" style={{marginBottom:8}}>
+              <span style={{fontSize:'0.85rem', fontWeight:600, color:'var(--muted)'}}>
+                Question {idx+1} of {total}
+              </span>
+              <span style={{fontSize:'0.85rem', fontWeight:700, color:'var(--violet)'}}>
+                {correct} correct
+              </span>
+            </div>
+            <div className="progress-track"
+              role="progressbar"
+              aria-valuenow={idx} aria-valuemin={0} aria-valuemax={total}
+              aria-label={`Progress: question ${idx+1} of ${total}`}>
+              <div className="progress-fill" style={{width:`${(idx/total)*100}%`}} />
+            </div>
+          </div>
+
+          <div className="card fade-up" key={animKey} ref={cardRef} tabIndex={-1} style={{outline:'none'}}>
+            <p className="q-main">{q.highlight}</p>
+
+            {q.twopart ? (
+              <TwoPartQuestion q={q} onSubmit={handleTwoPart} />
+            ) : (
+              <>
+                <p className="q-label" style={{marginBottom:16}}>{q.stem}</p>
+                {q.sub && (showHints || q.pairStep === 2) && (
+                  <p className="q-sub">{q.sub}</p>
+                )}
+                <div style={optGrid} role="group" aria-label="Answer choices">
+                  {q.options.map(opt => {
+                    const cls = btnClass(opt.key);
+                    return (
+                      <button
+                        key={opt.key}
+                        className={`ans-btn ${cls}`}
+                        onClick={() => choose(opt.key)}
+                        disabled={answered}
+                        aria-pressed={selected === opt.key ? true : undefined}
+                        aria-label={
+                          !answered ? opt.label :
+                          opt.key === q.answer ? `${opt.label} — correct answer` :
+                          opt.key === selected ? `${opt.label} — your incorrect answer` :
+                          opt.label
+                        }
+                      >
+                        <span className="ans-icon" aria-hidden="true">
+                          {answered && opt.key === q.answer ? '✓' :
+                           answered && opt.key === selected && opt.key !== q.answer ? '✗' : ''}
+                        </span>
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                {answered && (
+                  <div className={`feedback-box ${isCorrect ? 'correct' : 'wrong'}`} role="alert">
+                    <span className="feedback-icon" aria-hidden="true">{isCorrect ? '✓' : '✗'}</span>
+                    <div>
+                      <p className="feedback-label">{isCorrect ? 'Correct!' : 'Not quite.'}</p>
+                      <p className="feedback-text">{q.explanation}</p>
+                      {!isCorrect && selected === 'Statement of Cash Flows' && (
+                        <p className="feedback-text" style={{marginTop:6, fontStyle:'italic'}}>{SCF_NOTE}</p>
+                      )}
+                    </div>
+                  </div>
+                )}
+                {answered && (
+                  <button ref={nextRef} className="btn btn-primary" onClick={next}
+                    style={{marginTop:18, width:'100%'}}>
+                    {idx+1 >= total ? 'See My Results →' : 'Next Question →'}
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       RESULTS SCREEN
+    ════════════════════════════════════════════════════════════════ */
+    function ResultsScreen({ results, onRetry, onHome }) {
+      const score  = results.filter(r => r.ok).length;
+      const total  = results.length;
+      const pct    = Math.round((score / total) * 100);
+      const missed = results.filter(r => !r.ok);
+
+      const { grade, color } =
+        pct >= 90 ? { grade: 'Excellent Work!',  color: '#0A713A' } :
+        pct >= 75 ? { grade: 'Good Job!',         color: '#5c4800' } :
+        pct >= 60 ? { grade: 'Keep Practicing!',  color: '#7a3a00' } :
+                    { grade: 'Review & Try Again', color: '#a31524' };
+
+      return (
+        <div className="stack-lg fade-up">
+          <div className="card" style={{textAlign:'center'}}>
+            <div className="score-circle" aria-label={`Final score: ${score} out of ${total}`}>
+              <span className="score-num">{score}</span>
+              <span className="score-denom">/ {total}</span>
+            </div>
+            <p style={{fontFamily:'Bungee,cursive', fontSize:'1.5rem', color, marginBottom:4}}>{grade}</p>
+            <p style={{color:'var(--muted)', fontWeight:400}}>{pct}% correct</p>
+            <div className="row" style={{justifyContent:'center', marginTop:22, flexWrap:'wrap'}}>
+              <button className="btn btn-primary" onClick={onRetry}>Try Again</button>
+              <button className="btn btn-ghost"   onClick={onHome}>Change Mode</button>
+            </div>
+          </div>
+
+          {missed.length === 0 && (
+            <div className="card" style={{textAlign:'center', borderTop:`4px solid ${color}`}}>
+              <p style={{fontSize:'1.5rem', marginBottom:8}} aria-hidden="true">🎉</p>
+              <p style={{fontWeight:700, color:'var(--green)'}}>Perfect score — every account correctly identified!</p>
+            </div>
+          )}
+
+          {missed.length > 0 && (
+            <div className="card">
+              <h2 className="section-heading">Review These ({missed.length})</h2>
+              <div className="stack">
+                {missed.map((r, i) => (
+                  <div key={i} style={{padding:'14px 16px', borderRadius:10, background:'#fbeaec', borderLeft:'4px solid var(--red)'}}>
+                    <p style={{fontWeight:700, color:'var(--text)', marginBottom:8}}>{r.question.highlight}</p>
+                    {r.twopart ? (
+                      <>
+                        {!r.catCorrect && (
+                          <div style={{marginBottom:6}}>
+                            <p style={{fontSize:'0.82rem', color:'#6b0a13', fontWeight:400, marginBottom:2}}>
+                              <strong>Category you chose:</strong> {r.question.catOptions.find(o=>o.key===r.selCat)?.label ?? r.selCat}
+                            </p>
+                            <p style={{fontSize:'0.82rem', color:'#04401c', fontWeight:600}}>
+                              ✓ Correct category: {r.question.catOptions.find(o=>o.key===r.question.answerCat)?.label}
+                            </p>
+                            <p style={{fontSize:'0.79rem', color:'var(--muted)', fontWeight:400, marginTop:3, fontStyle:'italic'}}>{r.question.explanationCat}</p>
+                          </div>
+                        )}
+                        {!r.stmtCorrect && (
+                          <div>
+                            <p style={{fontSize:'0.82rem', color:'#6b0a13', fontWeight:400, marginBottom:2}}>
+                              <strong>Statement you chose:</strong> {r.selStmt ?? 'None'}
+                            </p>
+                            <p style={{fontSize:'0.82rem', color:'#04401c', fontWeight:600}}>
+                              ✓ Correct statement: {r.question.answerStatement}
+                            </p>
+                            <p style={{fontSize:'0.79rem', color:'var(--muted)', fontWeight:400, marginTop:3, fontStyle:'italic'}}>{r.question.explanationStmt}</p>
+                            {r.selStmt === 'Statement of Cash Flows' && (
+                              <p style={{fontSize:'0.79rem', color:'var(--muted)', fontWeight:400, marginTop:3, fontStyle:'italic'}}>{SCF_NOTE}</p>
+                            )}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <p style={{fontSize:'0.85rem', color:'#6b0a13', fontWeight:400, marginBottom:3}}>
+                          <strong>You answered:</strong> {r.question.options.find(o=>o.key===r.selected)?.label ?? r.selected}
+                        </p>
+                        <p style={{fontSize:'0.85rem', color:'#04401c', fontWeight:600}}>
+                          ✓ Correct: {r.question.options.find(o=>o.key===r.correct)?.label ?? r.correct}
+                        </p>
+                        <p style={{fontSize:'0.8rem', color:'var(--muted)', fontWeight:400, marginTop:4, fontStyle:'italic'}}>{r.question.explanation}</p>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       TWEAKS PANEL
+    ════════════════════════════════════════════════════════════════ */
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "questionCount": 10,
+      "showHints": true
+    }/*EDITMODE-END*/;
+
+    function TweaksPanel({ open, tweaks, onChange }) {
+      return (
+        <div className={`tweaks-panel ${open ? 'open' : ''}`} role="dialog" aria-label="Tweaks panel" aria-hidden={!open}>
+          <h3>Tweaks</h3>
+          <div className="tweak-row">
+            <label htmlFor="tw-count">Questions per quiz</label>
+            <div style={{display:'flex', alignItems:'center', gap:8}}>
+              <input
+                id="tw-count"
+                type="range" min={5} max={30} step={5}
+                value={tweaks.questionCount}
+                onChange={e => onChange({ ...tweaks, questionCount: +e.target.value })}
+                aria-label={`Questions per quiz: ${tweaks.questionCount}`}
+              />
+              <span style={{minWidth:24, fontWeight:700}}>{tweaks.questionCount}</span>
+            </div>
+          </div>
+          <div className="tweak-row">
+            <label htmlFor="tw-hints">Show hints</label>
+            <input
+              id="tw-hints"
+              type="checkbox"
+              checked={tweaks.showHints}
+              onChange={e => onChange({ ...tweaks, showHints: e.target.checked })}
+              aria-label={`Show hints: ${tweaks.showHints ? 'on' : 'off'}`}
+            />
+          </div>
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       APP
+    ════════════════════════════════════════════════════════════════ */
+    function App() {
+      const [screen,    setScreen]    = useState('welcome');
+      const [mode,      setMode]      = useState(null);
+      const [questions, setQuestions] = useState([]);
+      const [results,   setResults]   = useState([]);
+      const [tweaks,    setTweaks]    = useState(TWEAK_DEFAULTS);
+      const [tweakOpen, setTweakOpen] = useState(false);
+      const [section,   setSection]   = useState(0);
+      const [levels,    setLevels]    = useState(loadLevels);
+
+      // Reload levels from localStorage when returning to home
+      function goHome() {
+        setLevels(loadLevels());
+        setScreen('welcome');
+      }
+
+      function getPool() {
+        if (section === 0) return ACCOUNTS;
+        return ACCOUNTS.filter(a => (levels[a.name] || 0) === section);
+      }
+
+      // Tweaks toolbar integration
+      useEffect(() => {
+        function onMsg(e) {
+          if (e.data?.type === '__activate_edit_mode')   setTweakOpen(true);
+          if (e.data?.type === '__deactivate_edit_mode') setTweakOpen(false);
+        }
+        window.addEventListener('message', onMsg);
+        window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+        return () => window.removeEventListener('message', onMsg);
+      }, []);
+
+      function handleTweakChange(t) {
+        setTweaks(t);
+        window.parent.postMessage({ type: '__edit_mode_set_keys', edits: t }, '*');
+      }
+
+      function startQuiz(m, defaultCount) {
+        const pool = getPool();
+        if (m !== 2 && pool.length === 0) return; // guard: no accounts in section
+        const count = m === 2 ? 6 : Math.min(tweaks.questionCount, pool.length);
+        setMode(m);
+        setQuestions(generateQuestions(m, count, pool));
+        setScreen('quiz');
+      }
+
+      function handleFinish(r) {
+        setResults(r);
+        setScreen('results');
+      }
+
+      function handleRetry() {
+        const pool = getPool();
+        const count = mode === 2 ? 6 : Math.min(tweaks.questionCount, pool.length);
+        setQuestions(generateQuestions(mode, count, pool));
+        setScreen('quiz');
+      }
+
+      return (
+        <>
+          {screen !== 'home' && (
+            <div style={{marginBottom:18}}>
+              <button
+                className="btn btn-ghost"
+                onClick={() => setScreen('welcome')}
+                style={{padding:'8px 16px', fontSize:'0.875rem'}}
+              >
+                ← All Modes
+              </button>
+            </div>
+          )}
+
+          {screen === 'welcome' && <WelcomeScreen onStart={() => setScreen('home')} levels={levels} />}
+          {screen === 'home'    && <HomeScreen onStart={startQuiz} qCount={tweaks.questionCount} section={section} setSection={setSection} levels={levels} />}
+          {screen === 'quiz'    && <QuizScreen mode={mode} questions={questions} onFinish={handleFinish} showHints={tweaks.showHints} />}
+          {screen === 'results' && <ResultsScreen results={results} onRetry={handleRetry} onHome={goHome} />}
+
+          <TweaksPanel open={tweakOpen} tweaks={tweaks} onChange={handleTweakChange} />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
